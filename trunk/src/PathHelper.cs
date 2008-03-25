@@ -7,7 +7,6 @@ using NUnit.Framework;
 
 namespace ServerLight
 {
-    [TestFixture]
     public static class PathHelper
     {
         /// <summary>
@@ -174,9 +173,6 @@ namespace ServerLight
             //Project
             string result = PathHelper.ToRelativePath(new DirectoryInfo(@"C:\root\sub1\sub2\"), new FileInfo(@"C:\root\coucou.txt"));
             Assert.AreEqual(result, @"..\..\coucou.txt");
-
-            result = PathHelper.ToRelativePath(new DirectoryInfo(@"c:\"), new DirectoryInfo("c:\tttt"));
-            Assert.AreEqual(result, @".\ttt\");
 
             result = PathHelper.ToRelativePath(new DirectoryInfo(@"C:\root\sub1\sub2\"), new DirectoryInfo(@"C:\root\sub1\"));
             Assert.AreEqual(result, @"..\");

@@ -122,22 +122,20 @@
     <value>-3, 89</value>
   </data>
   <data name="richTextBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>416, 243</value>
+    <value>416, 207</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="richTextBox1.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="richTextBox1.Text" xml:space="preserve">
-    <value>ServerLight is a user friendly version of WebDev.WebHost.exe webserver. 
+    <value>ServerLight 0.1 is a user friendly version of WebDev.WebHost.exe webserver. 
 
 It can be usefull for :
  * Deployment scenario. Use Serverlight before deployment to check everything ok.
  * Development process : Run Website with all installed browser on your machine (IE, FireFox, MultipleIEs are autodetected)
  * Sharing without hosting : For small website, send your website files with ServerLight in a zipfile with just some instrustion.
  * WebSite Demontration : Just run Serverlight.exe without having to open Visual Studio or Blend.
-
-Why Serverlight? This project has emerge during a Silverlight 1.0 Project where many none developers where involved.
 
 Some code come from http://www.icsharpcode.net/OpenSource/SD/.
 
@@ -4283,7 +4281,7 @@ Few icons come from Silk icon set by Mark James, http://www.famfamfam.com/lab/ic
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>410, 330</value>
+    <value>410, 293</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
