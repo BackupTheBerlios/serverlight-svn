@@ -10,16 +10,14 @@ using System.Resources;
 
 #endregion
 
-// Assembly FluidDesign.ServerLight, Version 1.0.0.1
+// Assembly ServerLight, Version 1.0.0.1
 
 [assembly: CompilationRelaxations(8)]
 [assembly: Debuggable(DebuggableAttribute.DebuggingModes.IgnoreSymbolStoreSequencePoints)]
-[assembly: AssemblyTitle("FluidDesign.ServerLight.exe")]
-[assembly: AssemblyDefaultAlias("FluidDesign.ServerLight.exe")]
-[assembly: AssemblyDescription("FluidDesign.ServerLight.exe")]
-[assembly: AssemblyCompany("FluidDesign")]
-[assembly: AssemblyProduct("FluidDesign - ServerLight")]
-[assembly: AssemblyCopyright("\x00a9 FluidDesing. All rights reserved.")]
+[assembly: AssemblyTitle("ServerLight.ServerLight.exe")]
+[assembly: AssemblyDefaultAlias("ServerLight.ServerLight.exe")]
+[assembly: AssemblyDescription("ServerLight.ServerLight.exe")]
+[assembly: AssemblyProduct("ServerLight")]
 [assembly: RuntimeCompatibility(WrapNonExceptionThrows = true)]
 [assembly: SecurityPermission(SecurityAction.RequestMinimum)]
 [assembly: CLSCompliant(true)]

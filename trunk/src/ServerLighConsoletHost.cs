@@ -1,9 +1,9 @@
 ﻿/*
  * Copyright (c) 2007 Maxence Dislaire
  *
- * This file is part of FluidDesign.
+ * This file is part of ServerLight.
  *
- * FluidDesign is free open source software; you can redistribute it and/or
+ * ServerLight is free open source software; you can redistribute it and/or
  * modify it.
  *
  */

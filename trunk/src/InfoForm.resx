@@ -117,46 +117,29 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="maxBlogLink.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="maxBlogLink.Location" type="System.Drawing.Point, System.Drawing">
-    <value>316, 132</value>
-  </data>
-  <data name="maxBlogLink.Size" type="System.Drawing.Size, System.Drawing">
-    <value>81, 13</value>
-  </data>
-  <data name="maxBlogLink.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="maxBlogLink.Text" xml:space="preserve">
-    <value>Max - Archi Fan</value>
-  </data>
-  <data name="&gt;&gt;maxBlogLink.Name" xml:space="preserve">
-    <value>maxBlogLink</value>
-  </data>
-  <data name="&gt;&gt;maxBlogLink.Type" xml:space="preserve">
-    <value>System.Windows.Forms.LinkLabel, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;maxBlogLink.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;maxBlogLink.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="richTextBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>-3, 89</value>
   </data>
   <data name="richTextBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>419, 71</value>
+    <value>416, 243</value>
   </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="richTextBox1.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="richTextBox1.Text" xml:space="preserve">
-    <value>ServerLight has emerge during a Silverlight 1.0 Project.
+    <value>ServerLight is a user friendly version of WebDev.WebHost.exe webserver. 
+
+It can be usefull for :
+ * Deployment scenario. Use Serverlight before deployment to check everything ok.
+ * Development process : Run Website with all installed browser on your machine (IE, FireFox, MultipleIEs are autodetected)
+ * Sharing without hosting : For small website, send your website files with ServerLight in a zipfile with just some instrustion.
+ * WebSite Demontration : Just run Serverlight.exe without having to open Visual Studio or Blend.
+
+Why Serverlight? This project has emerge during a Silverlight 1.0 Project where many none developers where involved.
+
+Some code come from http://www.icsharpcode.net/OpenSource/SD/.
 
 Few icons come from Silk icon set by Mark James, http://www.famfamfam.com/lab/icons/silk</value>
   </data>
@@ -170,7 +153,7 @@ Few icons come from Silk icon set by Mark James, http://www.famfamfam.com/lab/ic
     <value>$this</value>
   </data>
   <data name="&gt;&gt;richTextBox1.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
   <data name="pictureBox1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -4291,7 +4274,7 @@ Few icons come from Silk icon set by Mark James, http://www.famfamfam.com/lab/ic
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBox1.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
@@ -4300,7 +4283,7 @@ Few icons come from Silk icon set by Mark James, http://www.famfamfam.com/lab/ic
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>409, 154</value>
+    <value>410, 330</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -4804,10 +4787,6 @@ Few icons come from Silk icon set by Mark James, http://www.famfamfam.com/lab/ic
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
 </value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>ServerLight</value>

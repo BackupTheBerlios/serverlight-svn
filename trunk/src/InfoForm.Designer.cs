@@ -29,19 +29,10 @@ namespace ServerLight
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(InfoForm));
-            this.maxBlogLink = new System.Windows.Forms.LinkLabel();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // maxBlogLink
-            // 
-            resources.ApplyResources(this.maxBlogLink, "maxBlogLink");
-            this.maxBlogLink.BackColor = System.Drawing.Color.White;
-            this.maxBlogLink.Name = "maxBlogLink";
-            this.maxBlogLink.TabStop = true;
-            this.maxBlogLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.maxBlogLink_LinkClicked);
             // 
             // richTextBox1
             // 
@@ -53,25 +44,22 @@ namespace ServerLight
             resources.ApplyResources(this.pictureBox1, "pictureBox1");
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // InfoForm
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.maxBlogLink);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "InfoForm";
-            this.Opacity = 0.8;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.LinkLabel maxBlogLink;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
     }

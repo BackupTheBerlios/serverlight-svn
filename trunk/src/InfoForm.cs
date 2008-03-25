@@ -15,7 +15,7 @@ namespace ServerLight
             InitializeComponent();
         }
 
-        private void maxBlogLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("http://blogs.developpeur.org/max/");
         }
