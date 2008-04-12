@@ -1,11 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
-using System.Windows.Forms;
-using System.Xml;
 
 namespace ServerLight
 {
@@ -66,7 +63,7 @@ namespace ServerLight
             {
                 m_pluginAssemblies.Add(new PluginAssembly(Process.GetCurrentProcess().MainModule.FileName));
             }
-            catch (XmlException)
+            catch (Exception)
             {
                 return;
             }
@@ -76,7 +73,7 @@ namespace ServerLight
                 {
                     m_pluginAssemblies.Add(new PluginAssembly(fileInfo.FullName));
                 }
-                catch (XmlException)
+                catch (Exception)
                 {
                     return;
                 }

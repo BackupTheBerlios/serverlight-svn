@@ -49,6 +49,7 @@ namespace ServerLight
             stringBuilder.AppendFormat("ServerLight Version    : {0}{1}", Assembly.GetEntryAssembly().GetName().Version, Environment.NewLine);
             stringBuilder.AppendFormat(".NET Version        : {0}{1}", Environment.Version.ToString(), Environment.NewLine);
             stringBuilder.AppendFormat("OS Version          : " + Environment.OSVersion.ToString() + Environment.NewLine);
+            stringBuilder.AppendFormat("App Domain Name     : " + AppDomain.CurrentDomain.FriendlyName + " - Id : " + AppDomain.CurrentDomain.Id + Environment.NewLine);
 
             string cultureName = null;
             try

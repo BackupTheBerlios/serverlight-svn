@@ -2,13 +2,14 @@ using System;
 using System.Configuration;
 using System.Diagnostics;
 using System.IO;
-using System.ServiceModel;
+using System.Reflection;
+//using System.ServiceModel;
 using System.Windows.Forms;
 using Microsoft.VisualStudio.WebHost;
 
 namespace ServerLight
 {
-    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
+    //[ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     internal class ServerLight : IServerLight
     {
         private readonly string m_ServerPhysicalPath;
@@ -34,6 +35,29 @@ namespace ServerLight
                 m_ServerPort = new Random((int)((ticks << 32) >> 32)).Next(22000, 22500);
             }
             m_ServerVirtualPath = "/";
+
+            AppDomain.CurrentDomain.AssemblyResolve += new ResolveEventHandler(
+                delegate(object sender, ResolveEventArgs args)
+                    {
+                        if (!args.Name.Equals("WebDev.WebHost, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a", StringComparison.Ordinal))
+                        {
+                            return null;
+                        }
+
+                        Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("ServerLight.WebDev.WebHost.dll");
+                        byte[] buf = new byte[stream.Length];
+                        stream.Read(buf, 0, (Int32) stream.Length);
+
+                        //NOTE: WebDev.WebHost is going to load itself AGAIN into another AppDomain,
+                        // and will be getting it's Assembliesfrom the BIN, including another copy of itself!
+                        // Therefore we need to do this step FIRST because I've removed Cassini from the GAC
+                        //Copy our assemblies down into the web server's BIN folder
+
+                        string webSiteBinPath = Path.Combine(m_ServerPhysicalPath, "bin");
+                        EnsureFile("WebDev.WebHost.dll", webSiteBinPath);
+
+                        return Assembly.Load((byte[]) buf);
+                    });
         }
 
         public Uri WebServerUri
@@ -105,6 +129,51 @@ namespace ServerLight
 
             webServer.Start();
             //Debug.WriteLine(String.Format("Web Server started on port {0} with VDir {1} in physical directory {2}", m_ServerPort, m_ServerVirtualPath, AppDomain.CurrentDomain.BaseDirectory));
+        }
+
+        //private static string ExtractResource(string filename, string directory)
+        //{
+        //    Assembly a = Assembly.GetExecutingAssembly();
+        //    string filePath = null;
+        //    using (Stream stream = a.GetManifestResourceStream("ServerLight." + filename))
+        //    {
+        //        if (stream != null)
+        //        {
+        //            filePath = Path.Combine(directory, filename);
+        //            using (StreamWriter outfile = File.Create(filePath))
+        //            {
+        //                using (StreamReader infile = new StreamReader(stream))
+        //                {
+        //                    outfile.Write(infile.ReadToEnd());
+        //                }
+        //            }
+        //        }
+        //    }
+        //    return filePath;
+        //}
+
+        private static void EnsureFile(string ressourceFileName, string directory)
+        {
+            string filePath = Path.Combine(directory, ressourceFileName);
+            if (!File.Exists(filePath))
+            {
+                Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("ServerLight." + ressourceFileName);
+                byte[] buf = new byte[stream.Length];
+                stream.Read(buf, 0, (Int32)stream.Length);
+                try
+                {
+                    if (!Directory.Exists(directory))
+                    {
+                        Directory.CreateDirectory(directory);
+                    }
+                    File.WriteAllBytes(filePath, buf);
+                }
+                catch (Exception e)
+                {
+                    throw new ApplicationException(ressourceFileName + " not found and cant write it to disk", e);
+                }
+                stream.Dispose();
+            }
         }
 
         public void StopWebServer()

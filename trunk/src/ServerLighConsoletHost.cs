@@ -9,7 +9,7 @@
  */
 using System;
 using System.Diagnostics;
-using System.ServiceModel;
+//using System.ServiceModel;
 using System.Threading;
 using System.Windows.Forms;
 using ServerLight;
@@ -19,7 +19,7 @@ namespace ServerLight
     public class ServerLighConsoletHost  : CommandLineOptions
     {
         private static readonly AutoResetEvent s_Event = new AutoResetEvent(false);
-        private static ServiceHost m_serviceHost;
+        //private static ServiceHost m_serviceHost;
         private static ServerLight s_ServerLightInstance;
         private static readonly IServiceContainerHelper s_serviceContainerHelper = new ServiceContainerHelper();
 
@@ -102,47 +102,49 @@ namespace ServerLight
 
         private void Go()
         {
-#if DEBUG
             LaunchServerLight();
-#else
-            try
-            {
-                //if ServerLight is allready launch, just use the allready lanched webser to launchDefaultWebBrowser.
-                if (ProcessHelper.IsRegister(GetUniqueName()))
-                {
-                    Uri basePipeRecorderServiceUri = new Uri(GetAppSettingbasePipeRecorderService());
-                    IServerLight lightWebServer = ChannelFactory<IServerLight>.CreateChannel(new NetNamedPipeBinding(NetNamedPipeSecurityMode.None), new EndpointAddress(basePipeRecorderServiceUri));
 
-                    lightWebServer.LaunchDefaultWebBrowser();
-                }
-                else
-                {
-                    //a special trick to know if serverlight is allready running or not.
-                    if (!secretboolparam)
-                    {
+//#if DEBUG
+//            LaunchServerLight();
+//#else
+//            try
+//            {
+//                //if ServerLight is allready launch, just use the allready lanched webser to launchDefaultWebBrowser.
+//                if (ProcessHelper.IsRegister(GetUniqueName()))
+//                {
+//                    Uri basePipeRecorderServiceUri = new Uri(GetAppSettingbasePipeRecorderService());
+//                    //IServerLight lightWebServer = ChannelFactory<IServerLight>.CreateChannel(new NetNamedPipeBinding(NetNamedPipeSecurityMode.None), new EndpointAddress(basePipeRecorderServiceUri));
 
-                        Process.Start(Process.GetCurrentProcess().MainModule.FileName.Replace(".vshost", String.Empty), "/secretboolparam");
-                    }
-                    else
-                    {
-                        ProcessHelper.Register(GetUniqueName());
-                        try
-                        {
-                            LaunchServerLight();
-                        }
-                        finally
-                        {
-                            ProcessHelper.UnRegister(GetUniqueName());
-                        }
-                    }
-                }
-            }
-            catch (Exception)
-            {
-                ProcessHelper.UnRegister(GetUniqueName());
-                throw;
-            }
-#endif
+//                    //lightWebServer.LaunchDefaultWebBrowser();
+//                }
+//                else
+//                {
+//                    //a special trick to know if serverlight is allready running or not.
+//                    if (!secretboolparam)
+//                    {
+
+//                        Process.Start(Process.GetCurrentProcess().MainModule.FileName.Replace(".vshost", String.Empty), "/secretboolparam");
+//                    }
+//                    else
+//                    {
+//                        ProcessHelper.Register(GetUniqueName());
+//                        try
+//                        {
+//                            LaunchServerLight();
+//                        }
+//                        finally
+//                        {
+//                            ProcessHelper.UnRegister(GetUniqueName());
+//                        }
+//                    }
+//                }
+//            }
+//            catch (Exception)
+//            {
+//                ProcessHelper.UnRegister(GetUniqueName());
+//                throw;
+//            }
+//#endif
         }
 
         private static string GetAppSettingbasePipeRecorderService()
@@ -165,14 +167,13 @@ namespace ServerLight
 
             //starting remotint API
             Uri baseAddress = new Uri(GetAppSettingbasePipeRecorderService());
-            m_serviceHost = new ServiceHost(s_ServerLightInstance, baseAddress);
-            m_serviceHost.AddServiceEndpoint(typeof(IServerLight), new NetNamedPipeBinding(NetNamedPipeSecurityMode.None), baseAddress);
-            m_serviceHost.Open();
+            //m_serviceHost = new ServiceHost(s_ServerLightInstance, baseAddress);
+            //m_serviceHost.AddServiceEndpoint(typeof(IServerLight), new NetNamedPipeBinding(NetNamedPipeSecurityMode.None), baseAddress);
+            //m_serviceHost.Open();
 
 
             VoidMethodDelegate v = delegate
                                        {
-                                           ServerLightInstance.LaunchDefaultWebBrowser();
                                            NotifyIconForm.Instance.NotifyIcon.ShowBalloonTip(1000, "ServerLight", s_ServerLightInstance.WebServerUri.ToString(), ToolTipIcon.Info);
                                            
                                            s_serviceContainerHelper.AddService<IMenuService>(NotifyIconForm.Instance);
@@ -181,6 +182,7 @@ namespace ServerLight
                                            PluginLoader pluginLoader = new PluginLoader(AppDomain.CurrentDomain.BaseDirectory);
                                            pluginLoader.LoadPluginAssemblies(s_serviceContainerHelper);  
                         
+                                           ServerLightInstance.LaunchDefaultWebBrowser();
                                            Application.Run(NotifyIconForm.Instance);
                                        };
 
@@ -195,18 +197,18 @@ namespace ServerLight
             s_Event.Close();
 
             s_ServerLightInstance.StopWebServer();
-            if (m_serviceHost != null)
-            {
-                m_serviceHost.Close();
-            }
+            //if (m_serviceHost != null)
+            //{
+            //    m_serviceHost.Close();
+            //}
         }
     }
 
 
-    [ServiceContract]
+    //[ServiceContract]
     public interface IServerLight
     {
-        [OperationContract]
+        //[OperationContract]
         void LaunchDefaultWebBrowser();
 
         Uri WebServerUri { get; }
