@@ -122,14 +122,14 @@
     <value>-3, 89</value>
   </data>
   <data name="richTextBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>416, 207</value>
+    <value>416, 280</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="richTextBox1.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
   <data name="richTextBox1.Text" xml:space="preserve">
-    <value>ServerLight 0.1 is a user friendly version of WebDev.WebHost.exe webserver. 
+    <value>ServerLight 1.0 is a user friendly version of WebDev.WebHost.exe webserver. 
 
 It can be usefull for :
  * Deployment scenario. Use Serverlight before deployment to check everything ok.
@@ -139,7 +139,12 @@ It can be usefull for :
 
 Some code come from http://www.icsharpcode.net/OpenSource/SD/.
 
-Few icons come from Silk icon set by Mark James, http://www.famfamfam.com/lab/icons/silk</value>
+Few icons come from Silk icon set by Mark James, http://www.famfamfam.com/lab/icons/silk
+
+Pss! Serverlight is Open Source! Get the code on http://developer.berlios.de/projects/serverlight/
+
+Hope this help!
+Max</value>
   </data>
   <data name="&gt;&gt;richTextBox1.Name" xml:space="preserve">
     <value>richTextBox1</value>
@@ -4281,7 +4286,7 @@ Few icons come from Silk icon set by Mark James, http://www.famfamfam.com/lab/ic
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>410, 293</value>
+    <value>410, 370</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -4787,7 +4792,7 @@ Few icons come from Silk icon set by Mark James, http://www.famfamfam.com/lab/ic
 </value>
   </data>
   <data name="$this.Text" xml:space="preserve">
-    <value>ServerLight</value>
+    <value>ServerLight By Maxence Dislaire</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>InfoForm</value>

@@ -12,7 +12,7 @@ namespace ServerLight
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("http://blogs.developpeur.org/max/");
+            System.Diagnostics.Process.Start("http://developer.berlios.de/projects/serverlight/");
         }
     }
 }
