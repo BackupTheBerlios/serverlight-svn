@@ -104,6 +104,7 @@ namespace ServerLight
         {
             LaunchServerLight();
 
+// Obsolete code let for documentation.
 //#if DEBUG
 //            LaunchServerLight();
 //#else
