@@ -176,7 +176,8 @@ namespace ServerLight
             VoidMethodDelegate v = delegate
                                        {
                                            NotifyIconForm.Instance.NotifyIcon.ShowBalloonTip(1000, "ServerLight", s_ServerLightInstance.WebServerUri.ToString(), ToolTipIcon.Info);
-                                           
+                                           NotifyIconForm.Instance.NotifyIcon.Text =
+                                               s_ServerLightInstance.ServerPhysicalPath;
                                            s_serviceContainerHelper.AddService<IMenuService>(NotifyIconForm.Instance);
                                            s_serviceContainerHelper.AddService<IServerLight>(s_ServerLightInstance);
                                            
